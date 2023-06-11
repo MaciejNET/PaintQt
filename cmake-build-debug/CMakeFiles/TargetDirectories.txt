@@ -1,0 +1,5 @@
+/Users/maciejnet/PoProj/cmake-build-debug/CMakeFiles/PoProj.dir
+/Users/maciejnet/PoProj/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/maciejnet/PoProj/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/maciejnet/PoProj/cmake-build-debug/CMakeFiles/PoProj_autogen_timestamp_deps.dir
+/Users/maciejnet/PoProj/cmake-build-debug/CMakeFiles/PoProj_autogen.dir
