@@ -4,6 +4,7 @@
 
 #include "tool.h"
 
+///Narzędzie do rysowania
 class PenTool : public Tool{
 public:
     PenTool(int size, QColor color);

@@ -4,6 +4,7 @@
 #include <QMouseEvent>
 #include "tool.h"
 
+///Narzędzie do rysowania prostokąta
 class RectangleShape : public Tool {
 public:
     RectangleShape(int size, QColor color);

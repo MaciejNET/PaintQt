@@ -3,6 +3,7 @@
 
 #include "tool.h"
 
+///Narzędzie do wymazywania
 class EraserTool : public Tool{
 public:
     explicit EraserTool(int size);

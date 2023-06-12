@@ -3,6 +3,7 @@
 
 #include "tool.h"
 
+///Narzędzie do rysowania lini prostej
 class LineShape : public Tool{
 public:
     LineShape(int size, QColor color);

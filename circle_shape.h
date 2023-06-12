@@ -3,6 +3,7 @@
 
 #include "tool.h"
 
+///Narzędzie do rysowania koła
 class CircleShape : public Tool{
 public:
     CircleShape(int size, QColor color);

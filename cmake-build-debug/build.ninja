@@ -196,7 +196,7 @@ build PoProj_autogen/timestamp PoProj_autogen/mocs_compilation.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles/PoProj_autogen_timestamp_deps
 
-build CMakeFiles/PoProj_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/PoProj_autogen_timestamp_deps: phony /opt/homebrew/share/qt/libexec/uic /opt/homebrew/share/qt/libexec/moc
+build CMakeFiles/PoProj_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/PoProj_autogen_timestamp_deps: phony /opt/homebrew/share/qt/libexec/moc /opt/homebrew/share/qt/libexec/uic
 
 
 #############################################

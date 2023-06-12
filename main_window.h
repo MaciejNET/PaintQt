@@ -6,6 +6,7 @@
 #include "drawing_area.h"
 #include <QToolBar>
 
+///Klasa do obsługi głównego okna
 class MainWindow : public QMainWindow {
 Q_OBJECT
 
