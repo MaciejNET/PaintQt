@@ -1,0 +1,26 @@
+\doxysection{line\+\_\+shape.\+h}
+\hypertarget{line__shape_8h_source}{}\label{line__shape_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POPROJ\_LINE\_SHAPE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POPROJ\_LINE\_SHAPE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}tool.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_line_shape}{LineShape}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tool}{Tool}}\{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_line_shape}{LineShape}}(\textcolor{keywordtype}{int}\ size,\ QColor\ color);}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_shape_a5ba4579e7cbb8289c6d4f1462dff8320}{mousePressEvent}}(QMouseEvent*\ event,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_shape_a56ca7e269782fc5e670b0377ccced9f2}{mouseMoveEvent}}(QMouseEvent*\ event,\ QPainter\&\ painter,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_shape_aeb01cb9353590f8430a97f2c39c9c066}{mouseReleaseEvent}}(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_line_shape_a04155ab1c078f571e53298fd2324a485}{paintEvent}}(QPaintEvent*\ event,\ QPainter\&\ painter)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ QPen\ createQPen()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ QPoint\ point;}
+\DoxyCodeLine{00018\ \ \ \ \ QLine\ line;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//POPROJ\_LINE\_SHAPE\_H}}
+
+\end{DoxyCode}

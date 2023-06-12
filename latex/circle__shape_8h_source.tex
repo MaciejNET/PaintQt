@@ -1,0 +1,26 @@
+\doxysection{circle\+\_\+shape.\+h}
+\hypertarget{circle__shape_8h_source}{}\label{circle__shape_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POPROJ\_CIRCLE\_SHAPE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POPROJ\_CIRCLE\_SHAPE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}tool.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_circle_shape}{CircleShape}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tool}{Tool}}\{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_circle_shape}{CircleShape}}(\textcolor{keywordtype}{int}\ size,\ QColor\ color);}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_shape_a943b90cd7823895cb32df5ad8690be8a}{mousePressEvent}}(QMouseEvent*\ event,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_shape_a1c471172080c941ad35ce464461df626}{mouseMoveEvent}}(QMouseEvent*\ event,\ QPainter\&\ painter,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_shape_a86ddd5a37839a60aaa7095ff72ea4e10}{mouseReleaseEvent}}(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_shape_a5a7f64cf7a740d283b3c725c7a415fa1}{paintEvent}}(QPaintEvent*\ event,\ QPainter\&\ painter)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ QPen\ createQPen()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ QPoint\ point;}
+\DoxyCodeLine{00018\ \ \ \ \ QRect\ rect;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//POPROJ\_CIRCLE\_SHAPE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,134 @@
+\doxysection{Rectangle\+Shape Class Reference}
+\hypertarget{class_rectangle_shape}{}\label{class_rectangle_shape}\index{RectangleShape@{RectangleShape}}
+
+
+Narzędzie do rysowania prostokąta.  
+
+
+
+
+{\ttfamily \#include $<$rectangle\+\_\+shape.\+h$>$}
+
+Inheritance diagram for Rectangle\+Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rectangle_shape}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rectangle_shape_a9aebca2d5722833b0ecf12080515a9a9}\label{class_rectangle_shape_a9aebca2d5722833b0ecf12080515a9a9} 
+{\bfseries Rectangle\+Shape} (int size, QColor color)
+\item 
+void \mbox{\hyperlink{class_rectangle_shape_aefc001749b62b977170882656c24aa23}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPoint \&last\+Point) override
+\item 
+void \mbox{\hyperlink{class_rectangle_shape_a4673f10f3d26dfb67e3f4f3364e065cd}{mouse\+Move\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter, QPoint \&last\+Point) override
+\item 
+void \mbox{\hyperlink{class_rectangle_shape_aaf6fadf16e673e71dfff3ecadeb9ae21}{mouse\+Release\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\item 
+void \mbox{\hyperlink{class_rectangle_shape_ac6a311b06a53d58cf0829ae6741b26a2}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_tool}{Tool}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Tool} (int size, QColor color)
+\item 
+virtual void \mbox{\hyperlink{class_tool_a50643ae273542864f05d3eb91a52cdd5}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPoint \&last\+Point)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_ac8fbc866086abbabc23e3128e43c8575}{mouse\+Move\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter, QPoint \&last\+Point)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_a7ab3918771b7afb4509149ed591ac2dd}{mouse\+Release\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_a5a98f0378721bcf7f0ef4f4956452854}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter)=0
+\item 
+virtual QPen \mbox{\hyperlink{class_tool_ac3a48c9a7555300bb951de4be2e5eb3d}{create\+QPen}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_tool}{Tool}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries size}
+\item 
+QColor {\bfseries color}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Narzędzie do rysowania prostokąta. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rectangle_shape_a4673f10f3d26dfb67e3f4f3364e065cd}\label{class_rectangle_shape_a4673f10f3d26dfb67e3f4f3364e065cd} 
+\index{RectangleShape@{RectangleShape}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!RectangleShape@{RectangleShape}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Rectangle\+Shape\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPainter \&}]{painter,  }\item[{QPoint \&}]{last\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności podczas poruszania myszą 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standrdowy mouse event \\
+\hline
+{\em painter} & Paiter umożliwający rysowanie na ekranie \\
+\hline
+{\em last\+Point} & Ostatni punkt w którym znajdował się kursor \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_ac8fbc866086abbabc23e3128e43c8575}{Tool}}.
+
+\Hypertarget{class_rectangle_shape_aefc001749b62b977170882656c24aa23}\label{class_rectangle_shape_aefc001749b62b977170882656c24aa23} 
+\index{RectangleShape@{RectangleShape}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!RectangleShape@{RectangleShape}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Rectangle\+Shape\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPoint \&}]{last\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności gdy zostanie wciśnięty przycisk myszki 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy mouse event \\
+\hline
+{\em last\+Point} & Ostatni punkt w którym znajdował się kursor \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a50643ae273542864f05d3eb91a52cdd5}{Tool}}.
+
+\Hypertarget{class_rectangle_shape_aaf6fadf16e673e71dfff3ecadeb9ae21}\label{class_rectangle_shape_aaf6fadf16e673e71dfff3ecadeb9ae21} 
+\index{RectangleShape@{RectangleShape}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!RectangleShape@{RectangleShape}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void Rectangle\+Shape\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności gdy zostanie puszczony przycisk myszki 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy mouse event \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a7ab3918771b7afb4509149ed591ac2dd}{Tool}}.
+
+\Hypertarget{class_rectangle_shape_ac6a311b06a53d58cf0829ae6741b26a2}\label{class_rectangle_shape_ac6a311b06a53d58cf0829ae6741b26a2} 
+\index{RectangleShape@{RectangleShape}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!RectangleShape@{RectangleShape}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily void Rectangle\+Shape\+::paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPainter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda do rysowania na ekranie 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy paint event \\
+\hline
+{\em painter} & Painter umożliwający rysowanie na ekranie \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a5a98f0378721bcf7f0ef4f4956452854}{Tool}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rectangle\+\_\+shape.\+h\item 
+rectangle\+\_\+shape.\+cpp\end{DoxyCompactItemize}

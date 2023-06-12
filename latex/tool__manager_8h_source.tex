@@ -1,0 +1,57 @@
+\doxysection{tool\+\_\+manager.\+h}
+\hypertarget{tool__manager_8h_source}{}\label{tool__manager_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POPROJ\_TOOL\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POPROJ\_TOOL\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}tool.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}pen\_tool.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}eraser\_tool.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}line\_shape.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}rectangle\_shape.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}circle\_shape.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ Tools}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Pen,}
+\DoxyCodeLine{00014\ \ \ \ \ Eraser,}
+\DoxyCodeLine{00015\ \ \ \ \ Rectangle,}
+\DoxyCodeLine{00016\ \ \ \ \ Circle,}
+\DoxyCodeLine{00017\ \ \ \ \ Line}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tool_manager}{ToolManager}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_tool_manager}{ToolManager}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_aee40a93aa41ad2958ffa0843a9ad20e7}{changeTool}}(Tools\ newTool);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_a052ee468c6ae05f3189c75075517fb9e}{setSize}}(\textcolor{keywordtype}{int}\ newSize);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_a9a568a68138fe2ee2f2984c397ae01c2}{setColor}}(QColor\ newColor);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tool_manager_a33026a24a769904568cf5902e4e94f58}{getSize}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00043\ \ \ \ \ QColor\ \mbox{\hyperlink{class_tool_manager_a3c2492248e22e431bd2f1c1eaa4b206e}{getColor}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_af472aa73efd3c2507bf00e891b91365d}{mousePressEvent}}(QMouseEvent*\ event,\ QPoint\&\ lastPoint);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_a8ff3f25b49f5530e4ae4293f46cd3970}{mouseMoveEvent}}(QMouseEvent*\ event,\ QPainter\&\ painter,\ QPoint\&\ lastPoint);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_aeade7c0f54bf97bbb9b24b3cea543ee6}{mouseReleaseEvent}}(QMouseEvent*\ event);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tool_manager_a72b37e4d31f74b8041ae22be1e372e20}{paintEvent}}(QPaintEvent*\ event,\ QPainter\&\ painter);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tool_manager_a9afb7867406dac96f4e1a0da2ed04e50}{isUsingPen}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_tool}{Tool}}*\ tool;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ penSize;}
+\DoxyCodeLine{00070\ \ \ \ \ QColor\ penColor;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ eraserSize;}
+\DoxyCodeLine{00072\ \ \ \ \ Tools\ currentTool;}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//POPROJ\_TOOL\_MANAGER\_H}}
+
+\end{DoxyCode}

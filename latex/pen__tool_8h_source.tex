@@ -1,0 +1,25 @@
+\doxysection{pen\+\_\+tool.\+h}
+\hypertarget{pen__tool_8h_source}{}\label{pen__tool_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POPROJ\_PEN\_TOOL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POPROJ\_PEN\_TOOL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}tool.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pen_tool}{PenTool}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tool}{Tool}}\{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_pen_tool}{PenTool}}(\textcolor{keywordtype}{int}\ size,\ QColor\ color);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pen_tool_a2fa876b7a4738a7aa15de931ef2dc94c}{mousePressEvent}}(QMouseEvent*\ event,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pen_tool_ad78a063b0b8b26b2019bd36bdacc0692}{mouseMoveEvent}}(QMouseEvent*\ event,\ QPainter\&\ painter,\ QPoint\&\ lastPoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pen_tool_a80e6872bdc7774c7ff9e26475d214b75}{mouseReleaseEvent}}(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pen_tool_ae894db1dd0c4bb74489aac1d7e455043}{paintEvent}}(QPaintEvent*\ event,\ QPainter\&\ painter)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ QPen\ createQPen()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//POPROJ\_PEN\_TOOL\_H}}
+
+\end{DoxyCode}

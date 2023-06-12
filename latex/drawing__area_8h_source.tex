@@ -1,0 +1,50 @@
+\doxysection{drawing\+\_\+area.\+h}
+\hypertarget{drawing__area_8h_source}{}\label{drawing__area_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POPROJ\_DRAWING\_AREA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POPROJ\_DRAWING\_AREA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}tool.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pen\_tool.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}eraser\_tool.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}tool\_manager.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_drawing_area}{DrawingArea}}\ :\ \textcolor{keyword}{public}\ QWidget\ \{}
+\DoxyCodeLine{00012\ Q\_OBJECT}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_drawing_area}{DrawingArea}}(QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_tool_manager}{ToolManager}}*\ toolManager;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drawing_area_a98be13dc3d4582ccbbc15ae27bed52b3}{undo}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drawing_area_ab5a12a1d48f06b9b0ac7c716fab1dc4a}{redo}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drawing_area_a8f00c8499212f1077d728fec8cbdfbe5}{clearImage}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ QImage\ \mbox{\hyperlink{class_drawing_area_a58e5a660bf730635d18c9fe3dcc2de9d}{getImage}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drawing_area_a627c9a1ea1915d88c726884cc3afbeca}{setImage}}(QImage\ newImage);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ mousePressEvent(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ mouseMoveEvent(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ mouseReleaseEvent(QMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ paintEvent(QPaintEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ resizeEvent(QResizeEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ QImage\ image;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ drawing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00043\ \ \ \ \ QPoint\ lastPoint;}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<QImage>\ images;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ imgNr\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ canUndo();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ canRedo();}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//POPROJ\_DRAWING\_AREA\_H}}
+
+\end{DoxyCode}

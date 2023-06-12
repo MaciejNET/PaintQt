@@ -1,0 +1,134 @@
+\doxysection{Line\+Shape Class Reference}
+\hypertarget{class_line_shape}{}\label{class_line_shape}\index{LineShape@{LineShape}}
+
+
+Narzędzie do rysowania lini prostej.  
+
+
+
+
+{\ttfamily \#include $<$line\+\_\+shape.\+h$>$}
+
+Inheritance diagram for Line\+Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_line_shape}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_line_shape_ae93808fc128551d78e34e470140f5926}\label{class_line_shape_ae93808fc128551d78e34e470140f5926} 
+{\bfseries Line\+Shape} (int size, QColor color)
+\item 
+void \mbox{\hyperlink{class_line_shape_a5ba4579e7cbb8289c6d4f1462dff8320}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPoint \&last\+Point) override
+\item 
+void \mbox{\hyperlink{class_line_shape_a56ca7e269782fc5e670b0377ccced9f2}{mouse\+Move\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter, QPoint \&last\+Point) override
+\item 
+void \mbox{\hyperlink{class_line_shape_aeb01cb9353590f8430a97f2c39c9c066}{mouse\+Release\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\item 
+void \mbox{\hyperlink{class_line_shape_a04155ab1c078f571e53298fd2324a485}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_tool}{Tool}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Tool} (int size, QColor color)
+\item 
+virtual void \mbox{\hyperlink{class_tool_a50643ae273542864f05d3eb91a52cdd5}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPoint \&last\+Point)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_ac8fbc866086abbabc23e3128e43c8575}{mouse\+Move\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter, QPoint \&last\+Point)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_a7ab3918771b7afb4509149ed591ac2dd}{mouse\+Release\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event)=0
+\item 
+virtual void \mbox{\hyperlink{class_tool_a5a98f0378721bcf7f0ef4f4956452854}{paint\+Event}} (QPaint\+Event \texorpdfstring{$\ast$}{*}event, QPainter \&painter)=0
+\item 
+virtual QPen \mbox{\hyperlink{class_tool_ac3a48c9a7555300bb951de4be2e5eb3d}{create\+QPen}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_tool}{Tool}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries size}
+\item 
+QColor {\bfseries color}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Narzędzie do rysowania lini prostej. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_line_shape_a56ca7e269782fc5e670b0377ccced9f2}\label{class_line_shape_a56ca7e269782fc5e670b0377ccced9f2} 
+\index{LineShape@{LineShape}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!LineShape@{LineShape}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Line\+Shape\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPainter \&}]{painter,  }\item[{QPoint \&}]{last\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności podczas poruszania myszą 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standrdowy mouse event \\
+\hline
+{\em painter} & Paiter umożliwający rysowanie na ekranie \\
+\hline
+{\em last\+Point} & Ostatni punkt w którym znajdował się kursor \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_ac8fbc866086abbabc23e3128e43c8575}{Tool}}.
+
+\Hypertarget{class_line_shape_a5ba4579e7cbb8289c6d4f1462dff8320}\label{class_line_shape_a5ba4579e7cbb8289c6d4f1462dff8320} 
+\index{LineShape@{LineShape}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!LineShape@{LineShape}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Line\+Shape\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPoint \&}]{last\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności gdy zostanie wciśnięty przycisk myszki 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy mouse event \\
+\hline
+{\em last\+Point} & Ostatni punkt w którym znajdował się kursor \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a50643ae273542864f05d3eb91a52cdd5}{Tool}}.
+
+\Hypertarget{class_line_shape_aeb01cb9353590f8430a97f2c39c9c066}\label{class_line_shape_aeb01cb9353590f8430a97f2c39c9c066} 
+\index{LineShape@{LineShape}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!LineShape@{LineShape}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void Line\+Shape\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda, która wykonuje czynności gdy zostanie puszczony przycisk myszki 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy mouse event \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a7ab3918771b7afb4509149ed591ac2dd}{Tool}}.
+
+\Hypertarget{class_line_shape_a04155ab1c078f571e53298fd2324a485}\label{class_line_shape_a04155ab1c078f571e53298fd2324a485} 
+\index{LineShape@{LineShape}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!LineShape@{LineShape}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily void Line\+Shape\+::paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{QPainter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Metoda do rysowania na ekranie 
+\begin{DoxyParams}{Parameters}
+{\em event} & Standardowy paint event \\
+\hline
+{\em painter} & Painter umożliwający rysowanie na ekranie \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_tool_a5a98f0378721bcf7f0ef4f4956452854}{Tool}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+line\+\_\+shape.\+h\item 
+line\+\_\+shape.\+cpp\end{DoxyCompactItemize}
