@@ -1,12 +1,14 @@
 #include "drawing_area.h"
 
+#include <utility>
+
 DrawingArea::DrawingArea(QWidget* parent) : QWidget(parent)
 {
     setAttribute(Qt::WA_StaticContents);
-    this->image = QImage(this->size(), QImage::Format_RGB32);
+    this->image = QImage(this->size(), QImage::Format_ARGB32);
     this->image.fill(Qt::white);
     images.push_back(image);
-    toolManager = new ToolManager;
+    toolManager = new ToolManager(this->size());
 }
 
 void DrawingArea::mousePressEvent(QMouseEvent* event)
@@ -34,8 +36,14 @@ void DrawingArea::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        toolManager->mouseReleaseEvent(event);
+        toolManager->mouseReleaseEvent(event, lastPoint, image);
         drawing = false;
+
+        if (images.size() > MAX_UNDO_STATES)
+        {
+            images.erase(images.begin());
+        }
+
         images.push_back(image);
         imgNr++;
         if (imgNr != images.size() - 1)
@@ -50,8 +58,13 @@ void DrawingArea::mouseReleaseEvent(QMouseEvent *event)
 void DrawingArea::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
-    toolManager->paintEvent(event, painter);
-    painter.drawImage(event->rect(), image, event->rect());
+    QRect rect = event->rect();
+    painter.drawImage(rect, image, rect);
+
+    QImage tempImage = currentToolTempImage();
+    if (!tempImage.isNull()) {
+        painter.drawImage(rect, tempImage, rect);
+    }
 }
 
 
@@ -66,6 +79,7 @@ void DrawingArea::resizeEvent(QResizeEvent *event)
     QPainter painter(&newImage);
     painter.drawImage(QPoint(0, 0), this->image);
     this->image = newImage;
+    toolManager->setSize(newSize);
     update();
 }
 
@@ -103,7 +117,6 @@ void DrawingArea::redo()
         painter.drawImage(QPoint(0, 0), images.at(imgNr));
         update();
     }
-
 }
 
 QImage DrawingArea::getImage()
@@ -113,10 +126,10 @@ QImage DrawingArea::getImage()
 
 void DrawingArea::setImage(QImage newImage)
 {
-    this->image = newImage;
+    this->image = std::move(newImage);
 }
 
-bool DrawingArea::canUndo()
+bool DrawingArea::canUndo() const
 {
     return imgNr > 0;
 }
@@ -124,4 +137,8 @@ bool DrawingArea::canUndo()
 bool DrawingArea::canRedo()
 {
     return imgNr < images.size()-1;
+}
+
+QImage DrawingArea::currentToolTempImage() const {
+    return toolManager->getTempImage();
 }

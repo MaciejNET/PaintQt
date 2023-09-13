@@ -3,27 +3,27 @@
 CircleShape::CircleShape(int size, QColor color) : Tool(size, color) {
 }
 
-void CircleShape::mousePressEvent(QMouseEvent *event, QPoint &lastPoint) {
+void CircleShape::mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) {
     point = lastPoint;
-    rect = QRect();
-    rect.setTopLeft(point);
+    tempImage = QImage(size, QImage::Format_ARGB32);
+    tempImage.fill(Qt::transparent);
 }
 
-void CircleShape::mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint) {
-    QPoint currentPosition = event->pos();
-
-    rect.setBottomRight(currentPosition);
-
-    painter.eraseRect(rect);
-    painter.setPen(this->createQPen());
-    painter.drawEllipse(rect);
+void CircleShape::mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint, QSize size) {
+    tempImage.fill(Qt::transparent);
+    QPainter p(&tempImage);
+    p.setPen(this->createQPen());
+    p.drawEllipse(QRect(point, lastPoint));
 }
 
-void CircleShape::mouseReleaseEvent(QMouseEvent *event) {
-
+void CircleShape::mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage &image) {
+    QPainter painter(&image);
+    painter.setPen(createQPen());
+    painter.drawEllipse(QRect(point, lastPoint));
+    tempImage.fill(Qt::transparent);
 }
 
-void CircleShape::paintEvent(QPaintEvent *event, QPainter &painter) {
+void CircleShape::paintEvent(QPaintEvent *event, QPainter &painter, QSize size) {
 
 }
 

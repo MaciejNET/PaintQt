@@ -1,12 +1,13 @@
 #include "tool_manager.h"
 
-ToolManager::ToolManager()
+ToolManager::ToolManager(QSize size)
 {
     this->penColor = Qt::black;
     this->penSize = 2;
     this->eraserSize = 5;
     this->tool = new PenTool(penSize, penColor);
     this->currentTool = Tools::Pen;
+    this->currentSize = size;
 }
 
 void ToolManager::changeTool(Tools newTool)
@@ -53,7 +54,7 @@ void ToolManager::changeTool(Tools newTool)
     }
 }
 
-void ToolManager::setSize(int newSize)
+void ToolManager::setToolSize(int newSize)
 {
     if (isUsingPen)
     {
@@ -75,8 +76,12 @@ void ToolManager::setColor(QColor newColor)
     this->changeTool(currentTool);
 }
 
+void ToolManager::setSize(QSize newSize) {
+    this->currentSize = newSize;
+}
 
-int ToolManager::getSize()
+
+int ToolManager::getToolSize() const
 {
     if (isUsingPen)
     {
@@ -95,22 +100,27 @@ QColor ToolManager::getColor()
     return Qt::white;
 }
 
+QImage ToolManager::getTempImage() {
+    return tool->getTempImage();
+}
+
 void ToolManager::mousePressEvent(QMouseEvent *event, QPoint& lastPoint)
 {
-    tool->mousePressEvent(event, lastPoint);
+    tool->mousePressEvent(event, lastPoint, currentSize);
 }
 
 void ToolManager::mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint)
 {
-    tool->mouseMoveEvent(event, painter, lastPoint);
+    tool->mouseMoveEvent(event, painter, lastPoint, currentSize);
 }
 
-void ToolManager::mouseReleaseEvent(QMouseEvent *event)
+void ToolManager::mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage &image)
 {
-    tool->mouseReleaseEvent(event);
+    tool->mouseReleaseEvent(event, lastPoint, image);
 }
 
 void ToolManager::paintEvent(QPaintEvent *event, QPainter &painter)
 {
-    tool->paintEvent(event, painter);
+    tool->paintEvent(event, painter, currentSize);
 }
+

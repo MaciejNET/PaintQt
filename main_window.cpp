@@ -21,7 +21,7 @@ void MainWindow::createDrawingArea()
 
 void MainWindow::createMenuBar()
 {
-    QToolBar* toolBar = new QToolBar(this);
+    auto* toolBar = new QToolBar(this);
 
     openAction = toolBar -> addAction("Open");
     connect(openAction, &QAction::triggered, this, &MainWindow::open);
@@ -143,16 +143,16 @@ void MainWindow::setSize()
     int newSize;
     if (drawingArea->toolManager->isUsingPen)
     {
-        newSize = QInputDialog::getInt(this, "Pen", "Choose new size", drawingArea->toolManager->getSize(), 1, 25, 1, &ok);
+        newSize = QInputDialog::getInt(this, "Pen", "Choose new size", drawingArea->toolManager->getToolSize(), 1, 25, 1, &ok);
     }
     else
     {
-        newSize = QInputDialog::getInt(this, "Eraser", "Choose new size", drawingArea->toolManager->getSize(), 5, 50, 1, &ok);
+        newSize = QInputDialog::getInt(this, "Eraser", "Choose new size", drawingArea->toolManager->getToolSize(), 5, 50, 1, &ok);
     }
 
     if (ok)
     {
-        drawingArea->toolManager->setSize(newSize);
+        drawingArea->toolManager->setToolSize(newSize);
     }
 }
 

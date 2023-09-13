@@ -7,28 +7,17 @@
 #include "eraser_tool.h"
 #include "tool_manager.h"
 
-///Klasa tworząca obszar do rysowania
 class DrawingArea : public QWidget {
 Q_OBJECT
 public:
     explicit DrawingArea(QWidget* parent = nullptr);
     ToolManager* toolManager;
-
-    ///Funkcja do cofania zmian
     void undo();
-
-    ///Funkcja do przywracania zmian
     void redo();
-
-    ///Funkcja do czyszczenia obrazu
     void clearImage();
-
-    ///Funkcja do pobierania aktualnego obrazu
     QImage getImage();
-
-    /// Ustawaia nowy obraz jako główny
-    /// \param newImage Obraz do ustawiania jako główny
     void setImage(QImage newImage);
+    const int MAX_UNDO_STATES = 15;
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
@@ -44,8 +33,9 @@ private:
     std::vector<QImage> images;
     int imgNr = 0;
 
-    bool canUndo();
+    bool canUndo() const;
     bool canRedo();
+    QImage currentToolTempImage() const;
 };
 
 

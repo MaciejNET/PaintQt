@@ -12,34 +12,17 @@ public:
         this->color = color;
     }
     virtual ~Tool() = default;
-
-    /// Metoda, która wykonuje czynności gdy zostanie wciśnięty przycisk myszki
-    /// \param event Standardowy mouse event
-    /// \param lastPoint Ostatni punkt w którym znajdował się kursor
-    virtual void mousePressEvent(QMouseEvent* event, QPoint& lastPoint) = 0;
-
-    /// Metoda, która wykonuje czynności podczas poruszania myszą
-    /// \param event Standrdowy mouse event
-    /// \param painter Paiter umożliwający rysowanie na ekranie
-    /// \param lastPoint Ostatni punkt w którym znajdował się kursor
-    virtual void mouseMoveEvent(QMouseEvent* event, QPainter& painter, QPoint& lastPoint) = 0;
-
-    /// Metoda, która wykonuje czynności gdy zostanie puszczony przycisk myszki
-    /// \param event Standardowy mouse event
-    virtual void mouseReleaseEvent(QMouseEvent* event) = 0;
-
-    /// Metoda do rysowania na ekranie
-    /// \param event Standardowy paint event
-    /// \param painter Painter umożliwający rysowanie na ekranie
-    virtual void paintEvent(QPaintEvent* event, QPainter& painter) = 0;
-
-    /// Metoda, która tworzy QPen z własności klasy (size, color)
-    /// \return QPen(size, color)
+    virtual void mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) = 0;
+    virtual void mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint, QSize size) = 0;
+    virtual void mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage &image) = 0;
+    virtual void paintEvent(QPaintEvent *event, QPainter &painter, QSize size) = 0;
     virtual QPen createQPen() = 0;
+    QImage getTempImage() {return tempImage;}
 
 protected:
     int size;
     QColor color;
+    QImage tempImage;
 };
 
 
