@@ -46,6 +46,9 @@ void MainWindow::createMenuBar()
     lineAction = toolBar->addAction("Line");
     connect(lineAction, &QAction::triggered, this, &MainWindow::setLineShape);
 
+    textAction = toolBar->addAction("Text");
+    connect(textAction, &QAction::triggered, this, &MainWindow::setTextTool);
+
     toolBar->addSeparator();
 
     sizeAction = toolBar->addAction("Size");
@@ -137,17 +140,23 @@ void MainWindow::setLineShape()
     drawingArea->toolManager->changeTool(Tools::Line);
 }
 
+void MainWindow::setTextTool()
+{
+    colorAction->setDisabled(false);
+    drawingArea->toolManager->changeTool(Tools::Text);
+}
+
 void MainWindow::setSize()
 {
     bool ok;
     int newSize;
     if (drawingArea->toolManager->isUsingPen)
     {
-        newSize = QInputDialog::getInt(this, "Pen", "Choose new size", drawingArea->toolManager->getToolSize(), 1, 25, 1, &ok);
+        newSize = QInputDialog::getInt(this, "Pen", "Choose new size", drawingArea->toolManager->getToolSize(), 1, 50, 1, &ok);
     }
     else
     {
-        newSize = QInputDialog::getInt(this, "Eraser", "Choose new size", drawingArea->toolManager->getToolSize(), 5, 50, 1, &ok);
+        newSize = QInputDialog::getInt(this, "Eraser", "Choose new size", drawingArea->toolManager->getToolSize(), 1, 50, 1, &ok);
     }
 
     if (ok)

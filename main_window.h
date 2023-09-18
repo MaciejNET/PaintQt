@@ -26,6 +26,7 @@ private slots:
     void setRectangleShape();
     void setCircleShape();
     void setLineShape();
+    void setTextTool();
     void setSize();
     void setColor();
     void undo();
@@ -40,6 +41,7 @@ private:
     QAction* rectangleAction;
     QAction* circleAction;
     QAction* lineAction;
+    QAction* textAction;
     QAction* sizeAction;
     QAction* colorAction;
     QAction* undoAction;

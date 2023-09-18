@@ -1,4 +1,5 @@
 #include "tool_manager.h"
+#include "text_tool.h"
 
 ToolManager::ToolManager(QSize size)
 {
@@ -46,6 +47,13 @@ void ToolManager::changeTool(Tools newTool)
             delete tool;
             currentTool = Tools::Line;
             tool = new LineShape(penSize, penColor);
+            isUsingPen = true;
+            break;
+
+        case Tools::Text:
+            delete tool;
+            currentTool = Tools::Text;
+            tool = new TextTool(penSize, penColor);
             isUsingPen = true;
             break;
 

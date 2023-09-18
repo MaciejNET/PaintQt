@@ -6,11 +6,7 @@
 
 class Tool {
 public:
-    Tool(int size, QColor color)
-    {
-        this->size = size;
-        this->color = color;
-    }
+    Tool(int size, QColor color) : size(size), color(color) {}
     virtual ~Tool() = default;
     virtual void mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) = 0;
     virtual void mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint, QSize size) = 0;

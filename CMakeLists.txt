@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.26)
 project(PaintQt)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,9 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(PaintQt main.cpp tool.h pen_tool.cpp pen_tool.h rectangle_shape.cpp rectangle_shape.h drawing_area.cpp drawing_area.h main_window.cpp main_window.h eraser_tool.cpp eraser_tool.h circle_shape.cpp circle_shape.h line_shape.cpp line_shape.h tool_manager.cpp tool_manager.h)
+add_executable(PaintQt main.cpp tool.h pen_tool.cpp pen_tool.h rectangle_shape.cpp rectangle_shape.h drawing_area.cpp drawing_area.h main_window.cpp main_window.h eraser_tool.cpp eraser_tool.h circle_shape.cpp circle_shape.h line_shape.cpp line_shape.h tool_manager.cpp tool_manager.h
+        text_tool.cpp
+        text_tool.h)
 target_link_libraries(PaintQt
         Qt::Core
         Qt::Gui

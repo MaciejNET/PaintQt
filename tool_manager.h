@@ -14,7 +14,8 @@ enum Tools
     Eraser,
     Rectangle,
     Circle,
-    Line
+    Line,
+    Text
 };
 
 class ToolManager {
