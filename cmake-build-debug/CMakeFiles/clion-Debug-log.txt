@@ -1,4 +1,0 @@
-/Users/maciejnet/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/maciejnet/Projects/PaintQt -B /Users/maciejnet/Projects/PaintQt/cmake-build-debug
--- Configuring done (0.2s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/maciejnet/Projects/PaintQt/cmake-build-debug

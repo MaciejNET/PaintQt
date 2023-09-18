@@ -1,4 +1,0 @@
-/Users/maciejnet/Projects/PaintQt/cmake-build-debug/CMakeFiles/PaintQt.dir
-/Users/maciejnet/Projects/PaintQt/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/maciejnet/Projects/PaintQt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/maciejnet/Projects/PaintQt/cmake-build-debug/CMakeFiles/PaintQt_autogen.dir
