@@ -1,11 +1,12 @@
-#ifndef POPROJ_CIRCLE_SHAPE_H
-#define POPROJ_CIRCLE_SHAPE_H
+#ifndef POPROJ_PEN_TOOL_H
+#define POPROJ_PEN_TOOL_H
 
 #include "tool.h"
 
-class CircleShape : public Tool{
+class PenTool : public Tool
+{
 public:
-    CircleShape(int size, QColor color);
+    PenTool(int size, QColor color);
     void mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) override;
     void mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint, QSize size) override;
     void mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage &image) override;
@@ -13,8 +14,7 @@ public:
 
 private:
     QPen createQPen() override;
-    QPoint point;
 };
 
 
-#endif //POPROJ_CIRCLE_SHAPE_H
+#endif //POPROJ_PEN_TOOL_H

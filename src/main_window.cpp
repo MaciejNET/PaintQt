@@ -4,8 +4,8 @@
 #include <QMessageBox>
 #include <QImageWriter>
 #include <QStandardPaths>
-#include "main_window.h"
-#include "drawing_area.h"
+#include "../include/main_window.h"
+#include "../include/drawing_area.h"
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {

@@ -4,7 +4,8 @@
 #include <QMouseEvent>
 #include <QPainter>
 
-class Tool {
+class Tool
+{
 public:
     Tool(int size, QColor color) : size(size), color(color) {}
     virtual ~Tool() = default;

@@ -34,7 +34,7 @@ public:
     void paintEvent(QPaintEvent* event, QPainter& painter);
     bool isUsingPen = true;
 private:
-    Tool* tool;
+    std::unique_ptr<Tool> tool;
     int penSize;
     QColor penColor;
     int eraserSize;

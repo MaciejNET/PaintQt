@@ -1,8 +1,6 @@
-#include "line_shape.h"
+#include "../include/line_shape.h"
 
-LineShape::LineShape(int size, QColor color) : Tool(size, color) {
-
-}
+LineShape::LineShape(int size, QColor color) : Tool(size, color) {}
 
 void LineShape::mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size)
 {
@@ -33,7 +31,8 @@ void LineShape::paintEvent(QPaintEvent *event, QPainter &painter, QSize size)
 
 }
 
-QPen LineShape::createQPen() {
+QPen LineShape::createQPen()
+{
     QPen pen(color, size, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
 
     return pen;

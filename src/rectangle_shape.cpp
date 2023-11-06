@@ -1,4 +1,4 @@
-#include "rectangle_shape.h"
+#include "../include/rectangle_shape.h"
 
 RectangleShape::RectangleShape(int size, QColor color) : Tool(size, color) {}
 

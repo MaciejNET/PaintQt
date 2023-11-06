@@ -13,9 +13,9 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(PaintQt main.cpp tool.h pen_tool.cpp pen_tool.h rectangle_shape.cpp rectangle_shape.h drawing_area.cpp drawing_area.h main_window.cpp main_window.h eraser_tool.cpp eraser_tool.h circle_shape.cpp circle_shape.h line_shape.cpp line_shape.h tool_manager.cpp tool_manager.h
-        text_tool.cpp
-        text_tool.h)
+add_executable(PaintQt src/main.cpp include/tool.h src/pen_tool.cpp include/pen_tool.h src/rectangle_shape.cpp include/rectangle_shape.h src/drawing_area.cpp include/drawing_area.h src/main_window.cpp include/main_window.h src/eraser_tool.cpp include/eraser_tool.h src/circle_shape.cpp include/circle_shape.h src/line_shape.cpp include/line_shape.h src/tool_manager.cpp include/tool_manager.h
+        src/text_tool.cpp
+        include/text_tool.h)
 target_link_libraries(PaintQt
         Qt::Core
         Qt::Gui

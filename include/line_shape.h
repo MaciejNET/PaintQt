@@ -1,20 +1,22 @@
-#ifndef PAINTQT_TEXT_TOOL_H
-#define PAINTQT_TEXT_TOOL_H
+#ifndef POPROJ_LINE_SHAPE_H
+#define POPROJ_LINE_SHAPE_H
 
 #include "tool.h"
 
-class TextTool : public Tool {
+class LineShape : public Tool
+{
 public:
-    TextTool(int size, QColor color);
+    LineShape(int size, QColor color);
     void mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) override;
     void mouseMoveEvent(QMouseEvent *event, QPainter &painter, QPoint &lastPoint, QSize size) override;
     void mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage &image) override;
     void paintEvent(QPaintEvent *event, QPainter &painter, QSize size) override;
-    QPen createQPen() override;
 
 private:
-    QFont font;
+    QPen createQPen() override;
+    QPoint point;
+    QLine line;
 };
 
 
-#endif //PAINTQT_TEXT_TOOL_H
+#endif //POPROJ_LINE_SHAPE_H

@@ -1,5 +1,5 @@
 #include <QtGui/qpainterpath.h>
-#include "eraser_tool.h"
+#include "../include/eraser_tool.h"
 
 EraserTool::EraserTool(int size) : Tool(size, Qt::white){}
 
@@ -31,7 +31,8 @@ void EraserTool::mouseReleaseEvent(QMouseEvent *event, QPoint &lastPoint, QImage
 
 void EraserTool::paintEvent(QPaintEvent *event, QPainter &painter, QSize size) {}
 
-QPen EraserTool::createQPen() {
+QPen EraserTool::createQPen()
+{
     QPen pen(color, size, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     return pen;
 }

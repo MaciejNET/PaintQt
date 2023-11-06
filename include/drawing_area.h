@@ -2,16 +2,18 @@
 #define POPROJ_DRAWING_AREA_H
 
 #include <QWidget>
+#include <deque>
 #include "tool.h"
 #include "pen_tool.h"
 #include "eraser_tool.h"
 #include "tool_manager.h"
 
-class DrawingArea : public QWidget {
+class DrawingArea : public QWidget
+{
 Q_OBJECT
 public:
     explicit DrawingArea(QWidget* parent = nullptr);
-    ToolManager* toolManager;
+    std::unique_ptr<ToolManager> toolManager;
     void undo();
     void redo();
     void clearImage();
@@ -30,12 +32,12 @@ private:
     QImage image;
     bool drawing = false;
     QPoint lastPoint;
-    std::vector<QImage> images;
-    int imgNr = 0;
+    std::deque<QImage> history;
+    int currentHistoryIndex = 0;
 
-    bool canUndo() const;
-    bool canRedo();
     QImage currentToolTempImage() const;
+    void pushToHistory(const QImage& img);
+    void applyHistoryImage(int index);
 };
 
 

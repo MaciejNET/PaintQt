@@ -3,7 +3,8 @@
 
 #include "tool.h"
 
-class EraserTool : public Tool{
+class EraserTool : public Tool
+{
 public:
     explicit EraserTool(int size);
     void mousePressEvent(QMouseEvent *event, QPoint &lastPoint, QSize size) override;

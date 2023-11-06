@@ -1,59 +1,51 @@
-#include "tool_manager.h"
-#include "text_tool.h"
+#include "../include/tool_manager.h"
+#include "../include/text_tool.h"
 
-ToolManager::ToolManager(QSize size)
-{
-    this->penColor = Qt::black;
-    this->penSize = 2;
-    this->eraserSize = 5;
-    this->tool = new PenTool(penSize, penColor);
-    this->currentTool = Tools::Pen;
-    this->currentSize = size;
-}
+ToolManager::ToolManager(QSize size) :
+    penColor(Qt::black),
+    penSize(2),
+    eraserSize(5),
+    tool(std::make_unique<PenTool>(penSize, penColor)),
+    currentTool(Tools::Pen),
+    currentSize(size) {}
 
 void ToolManager::changeTool(Tools newTool)
 {
     switch (newTool)
     {
         case Tools::Pen:
-            delete tool;
+            tool = std::make_unique<PenTool>(penSize, penColor);
             currentTool = Tools::Pen;
-            tool = new PenTool(penSize, penColor);
             isUsingPen = true;
             break;
 
         case Tools::Eraser:
-            delete tool;
+            tool = std::make_unique<EraserTool>(eraserSize);
             currentTool = Tools::Eraser;
-            tool = new EraserTool(eraserSize);
             isUsingPen = false;
             break;
 
         case Tools::Rectangle:
-            delete tool;
+            tool = std::make_unique<RectangleShape>(penSize, penColor);
             currentTool = Tools::Rectangle;
-            tool = new RectangleShape(penSize, penColor);
             isUsingPen = true;
             break;
 
         case Tools::Circle:
-            delete tool;
+            tool = std::make_unique<CircleShape>(penSize, penColor);
             currentTool = Tools::Circle;
-            tool = new CircleShape(penSize, penColor);
             isUsingPen = true;
             break;
 
         case Tools::Line:
-            delete tool;
+            tool = std::make_unique<LineShape>(penSize, penColor);
             currentTool = Tools::Line;
-            tool = new LineShape(penSize, penColor);
             isUsingPen = true;
             break;
 
         case Tools::Text:
-            delete tool;
+            tool = std::make_unique<TextTool>(penSize, penColor);
             currentTool = Tools::Text;
-            tool = new TextTool(penSize, penColor);
             isUsingPen = true;
             break;
 
@@ -84,7 +76,8 @@ void ToolManager::setColor(QColor newColor)
     this->changeTool(currentTool);
 }
 
-void ToolManager::setSize(QSize newSize) {
+void ToolManager::setSize(QSize newSize)
+{
     this->currentSize = newSize;
 }
 
@@ -108,7 +101,8 @@ QColor ToolManager::getColor()
     return Qt::white;
 }
 
-QImage ToolManager::getTempImage() {
+QImage ToolManager::getTempImage()
+{
     return tool->getTempImage();
 }
 

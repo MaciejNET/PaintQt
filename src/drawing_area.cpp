@@ -1,14 +1,13 @@
-#include "drawing_area.h"
+#include "../include/drawing_area.h"
 
 #include <utility>
 
-DrawingArea::DrawingArea(QWidget* parent) : QWidget(parent)
+DrawingArea::DrawingArea(QWidget* parent) : QWidget(parent), image(QImage(this->size(), QImage::Format_ARGB32))
 {
     setAttribute(Qt::WA_StaticContents);
-    this->image = QImage(this->size(), QImage::Format_ARGB32);
-    this->image.fill(Qt::white);
-    images.push_back(image);
-    toolManager = new ToolManager(this->size());
+    image.fill(Qt::white);
+    history.push_back(image);
+    toolManager = std::make_unique<ToolManager>(this->size());
 }
 
 void DrawingArea::mousePressEvent(QMouseEvent* event)
@@ -38,20 +37,7 @@ void DrawingArea::mouseReleaseEvent(QMouseEvent *event)
     {
         toolManager->mouseReleaseEvent(event, lastPoint, image);
         drawing = false;
-
-        if (images.size() > MAX_UNDO_STATES)
-        {
-            images.erase(images.begin());
-        }
-
-        images.push_back(image);
-        imgNr++;
-        if (imgNr != images.size() - 1)
-        {
-            std::vector<QImage> newImages(images.begin(), images.begin()+imgNr);
-            this->images = newImages;
-            images.push_back(image);
-        }
+        pushToHistory(image);
     }
 }
 
@@ -62,7 +48,8 @@ void DrawingArea::paintEvent(QPaintEvent* event)
     painter.drawImage(rect, image, rect);
 
     QImage tempImage = currentToolTempImage();
-    if (!tempImage.isNull()) {
+    if (!tempImage.isNull())
+    {
         painter.drawImage(rect, tempImage, rect);
     }
 }
@@ -85,37 +72,30 @@ void DrawingArea::resizeEvent(QResizeEvent *event)
 
 void DrawingArea::clearImage()
 {
-    this->image.fill(Qt::white);
-    images.push_back(image);
-    imgNr++;
-    update();
+    QImage whiteImage(image.size(), QImage::Format_ARGB32);
+    whiteImage.fill(Qt::white);
+
+    if (image != whiteImage)
+    {
+        this->image = std::move(whiteImage);
+        pushToHistory(this->image);
+        update();
+    }
 }
 
 void DrawingArea::undo()
 {
-    if (canUndo())
+    if (currentHistoryIndex > 0)
     {
-        QImage newImage(QSize(width(), height()), QImage::Format_RGB32);
-        newImage.fill(Qt::white);
-        imgNr--;
-        this->image = newImage;
-        QPainter painter(&image);
-        painter.drawImage(QPoint(0, 0), images.at(imgNr));
-        update();
+        applyHistoryImage(--currentHistoryIndex);
     }
 }
 
 void DrawingArea::redo()
 {
-    if (canRedo())
+    if (currentHistoryIndex < history.size() - 1)
     {
-        QImage newImage(QSize(width(), height()), QImage::Format_RGB32);
-        newImage.fill(Qt::white);
-        imgNr++;
-        this->image = newImage;
-        QPainter painter(&image);
-        painter.drawImage(QPoint(0, 0), images.at(imgNr));
-        update();
+        applyHistoryImage(++currentHistoryIndex);
     }
 }
 
@@ -129,16 +109,34 @@ void DrawingArea::setImage(QImage newImage)
     this->image = std::move(newImage);
 }
 
-bool DrawingArea::canUndo() const
+QImage DrawingArea::currentToolTempImage() const
 {
-    return imgNr > 0;
-}
-
-bool DrawingArea::canRedo()
-{
-    return imgNr < images.size()-1;
-}
-
-QImage DrawingArea::currentToolTempImage() const {
     return toolManager->getTempImage();
+}
+
+void DrawingArea::pushToHistory(const QImage &img)
+{
+    while (history.size() > currentHistoryIndex + 1)
+    {
+        history.pop_back();
+    }
+
+    history.push_back(img);
+
+    while (history.size() > MAX_UNDO_STATES)
+    {
+        history.pop_front();
+        currentHistoryIndex = std::max(0, currentHistoryIndex - 1);
+    }
+
+    currentHistoryIndex = std::min(currentHistoryIndex + 1, MAX_UNDO_STATES);
+}
+
+void DrawingArea::applyHistoryImage(int index)
+{
+    if (index >= 0 && index < history.size())
+    {
+        image = history[index];
+        update();
+    }
 }

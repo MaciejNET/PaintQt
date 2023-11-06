@@ -6,7 +6,8 @@
 #include "drawing_area.h"
 #include <QToolBar>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
 Q_OBJECT
 
 public:

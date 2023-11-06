@@ -18,3 +18,9 @@ cmake ..
 cmake --build .
 ./PaintQt
 ```
+
+### Screen shoots of running program
+![program_running_1](img/program_running_1.png)
+![program_running_2](img/program_running_2.png)
+![program_running_3](img/program_running_3.png)
+![program_running_4](img/program_running_4.png)
