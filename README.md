@@ -2,7 +2,7 @@
 
 ## Overview
 
-PaintQt is a Qt C++ desktop application that allows users to draw basic shapes like rectangles, lines and circles. It also supports color picker, save and load file, undo/redo and clen canvas.
+PaintQt is a Qt C++ desktop application that allows users to draw basic shapes like rectangles, lines, circles and add text to canvas. It also supports color picker, save and load file, undo/redo and clean canvas.
 
 ## Running the Application
 
